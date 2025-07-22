@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>700</height>
+    <width>650</width>
+    <height>750</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
    <item>
     <widget class="QLabel" name="label_title">
      <property name="text">
-      <string>&lt;h2&gt;Walkability Analyzer für Münster&lt;/h2&gt;</string>
+      <string>&lt;h2&gt;🚶 Walkability Analyzer für Münster&lt;/h2&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -27,40 +27,209 @@
     </widget>
    </item>
    
-   <!-- Stadtteil Auswahl -->
+   <!-- Location Selection Tabs -->
    <item>
-    <layout class="QHBoxLayout" name="layout_district">
-     <item>
-      <widget class="QLabel" name="label_district">
-       <property name="text">
-        <string>📍 Stadtteil auswählen:</string>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>150</width>
-         <height>0</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="comboBox_district">
-       <property name="minimumSize">
-        <size>
-         <width>200</width>
-         <height>30</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="spacer_district">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </spacer>
-     </item>
-    </layout>
+    <widget class="QTabWidget" name="tabWidget_location">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     
+     <!-- Stadtteil Tab -->
+     <widget class="QWidget" name="tab_districts">
+      <attribute name="title">
+       <string>📍 Stadtteil auswählen</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="layout_districts">
+       <item>
+        <layout class="QHBoxLayout" name="layout_district_select">
+         <item>
+          <widget class="QLabel" name="label_district">
+           <property name="text">
+            <string>Stadtteil:</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox_district">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="spacer_district">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_district_info">
+         <property name="text">
+          <string>&lt;i&gt;Wählen Sie einen der vordefinierten Münster Stadtteile aus.&lt;/i&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     
+     <!-- Koordinaten Tab -->
+     <widget class="QWidget" name="tab_coordinates">
+      <attribute name="title">
+       <string>🎯 Eigene Koordinaten</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="layout_coordinates">
+       <item>
+        <layout class="QGridLayout" name="layout_coord_input">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_latitude">
+           <property name="text">
+            <string>Breitengrad (Lat):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_latitude">
+           <property name="placeholderText">
+            <string>z.B. 51.9606649</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <spacer name="spacer_lat">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_longitude">
+           <property name="text">
+            <string>Längengrad (Lon):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_longitude">
+           <property name="placeholderText">
+            <string>z.B. 7.6261347</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_coord_info">
+         <property name="text">
+          <string>&lt;i&gt;Geben Sie Koordinaten im WGS84-Format ein (Dezimalgrad). Für beste Ergebnisse sollten die Koordinaten im Münster-Bereich liegen.&lt;/i&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     
+     <!-- Adresse Tab -->
+     <widget class="QWidget" name="tab_address">
+      <attribute name="title">
+       <string>🏠 Adresse eingeben</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="layout_address">
+       <item>
+        <layout class="QHBoxLayout" name="layout_address_input">
+         <item>
+          <widget class="QLabel" name="label_address">
+           <property name="text">
+            <string>Adresse:</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_address">
+           <property name="placeholderText">
+            <string>z.B. Prinzipalmarkt 1, Münster</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_geocode">
+           <property name="text">
+            <string>🔍 Suchen</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_geocode_result">
+         <property name="text">
+          <string>&lt;i&gt;Adresse eingeben und auf "Suchen" klicken für Geocodierung.&lt;/i&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_address_info">
+         <property name="text">
+          <string>&lt;i&gt;Tipp: Für beste Ergebnisse "Münster" oder "48..." zur Adresse hinzufügen.&lt;/i&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     
+    </widget>
    </item>
    
    <!-- Zeit Slider -->
@@ -236,7 +405,7 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string>QPushButton { background-color: #4CAF50; color: white; font-weight: bold; }</string>
+        <string>QPushButton { background-color: #4CAF50; color: white; font-weight: bold; border-radius: 5px; }</string>
        </property>
       </widget>
      </item>
@@ -254,6 +423,9 @@
        <property name="enabled">
         <bool>false</bool>
        </property>
+       <property name="styleSheet">
+        <string>QPushButton { border-radius: 5px; }</string>
+       </property>
       </widget>
      </item>
      <item>
@@ -266,6 +438,9 @@
          <width>100</width>
          <height>35</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string>QPushButton { border-radius: 5px; }</string>
        </property>
       </widget>
      </item>
@@ -286,6 +461,9 @@
          <width>100</width>
          <height>35</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string>QPushButton { border-radius: 5px; }</string>
        </property>
       </widget>
      </item>

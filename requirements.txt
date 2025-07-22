@@ -1,0 +1,13 @@
+# requirements.txt - Python Dependencies für Walkability Analyzer Plugin
+
+# HTTP-Requests für API-Aufrufe
+requests>=2.25.0
+
+# Geometrie-Verarbeitung für Punkt-in-Polygon-Tests
+Shapely>=1.8.0
+
+# Koordinaten-Transformationen (optional)
+pyproj>=3.2.0
+
+# PDF-Generierung für Export
+reportlab>=3.6.0

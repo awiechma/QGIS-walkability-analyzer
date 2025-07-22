@@ -3,9 +3,52 @@
 [general]
 name=Walkability Analyzer
 qgisMinimumVersion=3.0
-description=Walkability assessment for Münster districts using OpenRouteService API
-version=1.0
+qgisMaximumVersion=3.99
+description=Walkability assessment for urban areas using OpenRouteService API and OpenStreetMap data
+about=This plugin analyzes walkability for different locations by calculating pedestrian isochrones and evaluating the availability of essential services (supermarkets, pharmacies, schools, etc.) within walking distance. The plugin uses the OpenRouteService API for route calculations and OpenStreetMap data via Overpass API for points of interest (POIs). It provides detailed scoring, visualization layers, and PDF export functionality.
+
+# Plugin version and metadata
+version=1.0.0
 author=Amon Wiechmann
 email=awiechma@uni-muenster.de
+homepage=https://github.com/awiechma/walkability-analyzer
+repository=https://github.com/awiechma/walkability-analyzer
+tracker=https://github.com/awiechma/walkability-analyzer/issues
 
-about=This plugin analyzes walkability for different districts in Münster,
+# Plugin classification
+category=Analysis
+tags=walkability,urban planning,accessibility,isochrone,pedestrian,osm,openstreetmap
+
+# Plugin icon and changelog
+icon=icon.png
+changelog=
+    1.0.0
+    - Initial release
+    - Multi-location support (districts, coordinates, addresses)
+    - OpenRouteService isochrone calculation
+    - OpenStreetMap POI analysis
+    - Walkability scoring system
+    - QGIS layer integration
+    - PDF export functionality
+    - Dependency management
+
+# Licensing
+license=GNU GPL v2+
+licenseText=This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
+
+# Dependencies and requirements  
+requirements=requests,shapely,reportlab,pyproj
+
+# Plugin status
+experimental=True
+deprecated=False
+
+# Additional plugin info
+hasProcessingProvider=no
+hasServerInterface=no
+
+# Plugin structure info
+plugin_dependencies=
+
+# Funding and support info
+funding=University of Münster - Institute for Spatial Information and Surveying Technology
