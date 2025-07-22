@@ -1,0 +1,11 @@
+# metadata.txt - Plugin-Metadaten
+
+[general]
+name=Walkability Analyzer
+qgisMinimumVersion=3.0
+description=Walkability assessment for Münster districts using OpenRouteService API
+version=1.0
+author=Amon Wiechmann
+email=awiechma@uni-muenster.de
+
+about=This plugin analyzes walkability for different districts in Münster,
