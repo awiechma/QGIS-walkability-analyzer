@@ -11,10 +11,6 @@ about=This plugin analyzes walkability for different locations by calculating pe
 version=1.0.0
 author=Amon Wiechmann
 email=awiechma@uni-muenster.de
-homepage=https://github.com/awiechma/walkability-analyzer
-repository=https://github.com/awiechma/walkability-analyzer
-tracker=https://github.com/awiechma/walkability-analyzer/issues
-
 # Plugin classification
 category=Analysis
 tags=walkability,urban planning,accessibility,isochrone,pedestrian,osm,openstreetmap
